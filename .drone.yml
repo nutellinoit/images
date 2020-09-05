@@ -1,0 +1,38 @@
+---
+kind: pipeline
+name: test
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: build
+    image: docker:dind
+    environment:
+      USER:
+        from_secret:
+          QUAY_USER
+      TOKEN:
+        from_secret:
+          QUAY_TOKEN
+    pull: always
+    commands:
+      - docker login -p $TOKEN -u $USER quay.io
+      - apk add --no-cache python3 py-yaml git
+      - modified=$(git diff --name-only HEAD~1..HEAD . | xargs echo)
+      - echo $modified
+      - ./build.py quay.io $modified
+    volumes:
+      - name: dockersock
+        path: /var/run/docker.sock
+    when:
+      event:
+        - push
+      branch:
+        - master
+
+volumes:
+  - name: dockersock
+    host:
+      path: /var/run/docker.sock
