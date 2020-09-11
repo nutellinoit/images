@@ -1,5 +1,4 @@
-FROM alpine:3.6
-
+FROM alpine:3.8
 COPY docker-entrypoint.sh /
 RUN apk update && \
     apk add --no-cache su-exec && \
