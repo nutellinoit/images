@@ -1,6 +1,6 @@
 ---
 kind: pipeline
-name: test
+name: superpipeline
 
 platform:
   os: linux
