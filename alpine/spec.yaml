@@ -1,0 +1,4 @@
+image: nutellinoit/alpine
+tags:
+  ALPINE:
+    - latest
