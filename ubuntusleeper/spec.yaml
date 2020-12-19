@@ -1,0 +1,4 @@
+image: nutellinoit/ubuntusleeper
+tags:
+  UBUNTU:
+    - latest
