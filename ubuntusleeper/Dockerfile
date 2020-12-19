@@ -1,3 +1,3 @@
 FROM ubuntu:latest
-RUN apt update && apt install awscli vim curl -y
+RUN apt update
 CMD sleep 36000000
