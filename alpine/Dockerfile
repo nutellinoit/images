@@ -1,2 +1,2 @@
 FROM alpine:latest
-RUN apk add jq curl
+RUN apk add jq curl vim
