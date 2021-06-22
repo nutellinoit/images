@@ -3,5 +3,5 @@ tags:
   NODE:
     - lts-alpine
   VERSION:
-    - 1
+    - 2
 
