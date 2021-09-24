@@ -1,0 +1,4 @@
+image: nutellinoit/kubectl-unprivileged
+tags:
+  KUBECTL:
+    - v1.20.7
