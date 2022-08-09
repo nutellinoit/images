@@ -10,7 +10,7 @@ modified_files = set([os.path.dirname(file) for file in sys.argv[2:] ])
 print(modified_files)
 for d in [ d for d in os.listdir(".") if not d.startswith(".") and os.path.isdir(d) and d in modified_files and os.path.isfile(os.path.join(d,"spec.yaml"))]:
     with open(os.path.join(d,"spec.yaml")) as f:
-        specs[d]=yaml.load(f)
+        specs[d]=yaml.load(f, Loader=yaml.SafeLoader)
 print(yaml.dump(specs))
 
 for k in specs.keys():
@@ -22,4 +22,3 @@ for k in specs.keys():
         push = "docker push " + image
         if ( os.system(build) != 0 or os.system(push) != 0 ):
             sys.exit(1)
-
