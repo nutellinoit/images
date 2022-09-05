@@ -2,9 +2,7 @@
 kind: pipeline
 name: superpipeline
 
-platform:
-  os: linux
-  arch: amd64
+platform: linux/amd64
 
 steps:
   - name: build
