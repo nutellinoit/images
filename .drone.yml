@@ -1,7 +1,7 @@
 platform: linux/amd64
 
 pipeline:
-  - name: build
+  build:
     image: docker:dind
     environment:
       USER:
