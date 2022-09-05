@@ -1,10 +1,6 @@
----
-kind: pipeline
-name: superpipeline
-
 platform: linux/amd64
 
-steps:
+pipeline:
   - name: build
     image: docker:dind
     environment:
