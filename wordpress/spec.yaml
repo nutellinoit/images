@@ -2,3 +2,4 @@ image: nutellinoit/wordpress
 tags:
   WORDPRESS:
     - 6.0.1-php7.4-fpm
+    
