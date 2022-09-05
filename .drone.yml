@@ -3,11 +3,11 @@ platform: linux/amd64
 pipeline:
   build:
     image: docker:dind
-    environment:
-      USER:
+    settings:
+      user:
         from_secret:
           QUAY_USER
-      TOKEN:
+      token:
         from_secret:
           QUAY_TOKEN
     pull: always
