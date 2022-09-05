@@ -3,6 +3,7 @@ platform: linux/amd64
 pipeline:
   build:
     image: docker:dind
+    secrets: [ "QUAY_USER" , "QUAY_TOKEN" ]
     settings:
       user:
         from_secret:
@@ -12,7 +13,7 @@ pipeline:
           QUAY_TOKEN
     pull: true
     commands:
-      - docker login -p $TOKEN -u $USER quay.io
+      - docker login -p $QUAY_TOKEN -u $QUAY_USER quay.io
       - apk add --no-cache python3 py-yaml git
       - modified=$(git diff --name-only HEAD~1..HEAD . | xargs echo)
       - echo $modified
