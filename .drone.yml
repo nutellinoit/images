@@ -10,7 +10,7 @@ pipeline:
       token:
         from_secret:
           QUAY_TOKEN
-    pull: always
+    pull: true
     commands:
       - docker login -p $TOKEN -u $USER quay.io
       - apk add --no-cache python3 py-yaml git
