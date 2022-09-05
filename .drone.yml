@@ -4,13 +4,6 @@ pipeline:
   build:
     image: docker:dind
     secrets: [ "QUAY_USER" , "QUAY_TOKEN" ]
-    settings:
-      user:
-        from_secret:
-          QUAY_USER
-      token:
-        from_secret:
-          QUAY_TOKEN
     pull: true
     commands:
       - docker login -p $QUAY_TOKEN -u $QUAY_USER quay.io
